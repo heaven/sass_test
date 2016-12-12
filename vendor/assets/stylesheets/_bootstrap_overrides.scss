@@ -1,0 +1,85 @@
+// Custom
+$border-width: 1px !default;
+
+/* Cool radio buttons
+ ------------------------------------------------------------------------------ */
+.radio-buttons {
+  padding: 0 !important;
+  overflow: hidden;
+
+  > div {
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    width: 100.1%;
+    height: 100%;
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    > div {
+      display: table-row;
+
+      > span {
+        position: relative;
+        display: table-cell;
+        border-left: 1px solid $input-border;
+        border-right: 1px solid $input-border;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        > label {
+          position: relative;
+          display: block;
+          width: 100%;
+        }
+
+        label {
+          margin: 0;
+          width: 100%;
+          height: 100%;
+
+          > i {
+            font-size: 120%;
+          }
+        }
+
+        input[type=radio] {
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin: 0;
+          @include opacity(0);
+        }
+
+        input[type=radio] + label {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: $padding-base-vertical - $border-width * 2 $padding-base-horizontal;
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          border: none;
+          border-radius: 0;
+          line-height: $line-height-computed;
+          z-index: 1;
+        }
+
+        input[type=radio]:checked + label {
+          @extend .btn-primary;
+        }
+
+        input[type=radio]:focus + label {
+          @extend .btn-primary:focus;
+        }
+      }
+    }
+  }
+}
